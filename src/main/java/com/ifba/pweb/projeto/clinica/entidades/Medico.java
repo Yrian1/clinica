@@ -4,8 +4,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
+
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
@@ -14,12 +13,11 @@ public class Medico {
 	private String nome;
 	private String email;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int CRM;
+	private Long CRM;
 	private boolean eh_ativo;
 	@Enumerated(EnumType.STRING)
 	private Especialidade especialidade;
-	@OneToOne(mappedBy="medico", cascade = CascadeType.PERSIST)
+	@OneToOne(mappedBy="cep", cascade = CascadeType.PERSIST)
 	private Endereco endereco;
 	
 	public Medico() {
@@ -43,11 +41,11 @@ public class Medico {
 		this.email = email;
 	}
 
-	public int getCRM() {
+	public Long getCRM() {
 		return CRM;
 	}
 
-	public void setCRM(int cRM) {
+	public void setCRM(Long cRM) {
 		CRM = cRM;
 	}
 

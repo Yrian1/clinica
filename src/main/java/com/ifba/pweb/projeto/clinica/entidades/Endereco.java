@@ -1,13 +1,22 @@
 package com.ifba.pweb.projeto.clinica.entidades;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
+
+@Entity(name = "endereco")
 public class Endereco {
 	
+	@OneToOne(mappedBy="CRM", cascade = CascadeType.PERSIST)
+	private Medico medico;
 	private String logradouro;
 	private int numero;
 	private String complemento;
 	private String bairro;
 	private String cidade;
 	private String uf;
+	@Id
 	private String cep;
 	
 	
