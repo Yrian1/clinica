@@ -7,9 +7,8 @@ import jakarta.persistence.OneToOne;
 
 @Entity(name = "endereco")
 public class Endereco {
-	
-	@OneToOne(mappedBy="CRM", cascade = CascadeType.PERSIST)
-	private Medico medico;
+
+
 	private String logradouro;
 	private int numero;
 	private String complemento;

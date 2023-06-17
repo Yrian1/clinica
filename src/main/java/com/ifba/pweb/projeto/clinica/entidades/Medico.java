@@ -17,7 +17,7 @@ public class Medico {
 	private boolean eh_ativo;
 	@Enumerated(EnumType.STRING)
 	private Especialidade especialidade;
-	@OneToOne(mappedBy="cep", cascade = CascadeType.PERSIST)
+	@OneToOne
 	private Endereco endereco;
 	
 	public Medico() {
