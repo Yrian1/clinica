@@ -1,0 +1,9 @@
+package com.ifba.pweb.projeto.clinica.repositorios;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ifba.pweb.projeto.clinica.entidades.Paciente;
+
+public interface pacienteRepo extends JpaRepository<Paciente, Long> {
+
+}

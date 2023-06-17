@@ -1,9 +1,8 @@
 package com.ifba.pweb.projeto.clinica.entidades;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+
 
 @Entity(name = "endereco")
 public class Endereco {

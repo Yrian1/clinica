@@ -1,26 +1,22 @@
 package com.ifba.pweb.projeto.clinica.entidades;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+
 
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
-@Entity(name = "medicos")
-public class Medico {
+@Entity(name = "pacientes")
+public class Paciente {
 	private String nome;
 	private String email;
-	private String telefone;
 	@Id
-	private Long CRM;
+	private Long CPF;
 	private boolean eh_ativo;
-	@Enumerated(EnumType.STRING)
-	private Especialidade especialidade;
 	@OneToOne
 	private Endereco endereco;
 	
-	public Medico() {
+	public Paciente() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -41,13 +37,6 @@ public class Medico {
 		this.email = email;
 	}
 
-	public Long getCRM() {
-		return CRM;
-	}
-
-	public void setCRM(Long cRM) {
-		CRM = cRM;
-	}
 
 	public boolean isEh_ativo() {
 		return eh_ativo;
@@ -57,28 +46,12 @@ public class Medico {
 		this.eh_ativo = eh_ativo;
 	}
 
-	public Especialidade getEspecialidade() {
-		return especialidade;
-	}
-
-	public void setEspecialidade(Especialidade especialidade) {
-		this.especialidade = especialidade;
-	}
-
 	public Endereco getEndereco() {
 		return endereco;
 	}
 
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
 	}
 	
 	
