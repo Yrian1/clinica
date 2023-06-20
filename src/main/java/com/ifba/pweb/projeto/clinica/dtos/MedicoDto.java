@@ -3,13 +3,12 @@ package com.ifba.pweb.projeto.clinica.dtos;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.ifba.pweb.projeto.clinica.dtos.model.PessoaBasics;
 import com.ifba.pweb.projeto.clinica.entidades.Especialidade;
 import com.ifba.pweb.projeto.clinica.entidades.Medico;
 
-public class MedicoDto {
+public class MedicoDto extends PessoaBasics{
 	
-	private String nome;
-	private String email;
 	private Long CRM;
 	private Especialidade especialidade;
 	
@@ -18,21 +17,10 @@ public class MedicoDto {
 		super();
 		this.nome = medico.getNome();
 		this.email = medico.getEmail();
-		CRM = medico.getCRM();
+		this.CRM = medico.getCRM();
 		this.especialidade = medico.getEspecialidade();
 	}
-	public String getNome() {
-		return nome;
-	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+	
 	public Long getCrm() {
 		return CRM;
 	}
@@ -47,7 +35,11 @@ public class MedicoDto {
 	}
 	
 	public static List<MedicoDto> medicoIntoMedicoDto(List<Medico> medicos){
-		return medicos.stream().map(MedicoDto::new).collect(Collectors.toList());
+		return medicos.stream().filter(temp -> temp.isEh_ativo())
+						.map(MedicoDto::new)
+							.collect(Collectors.toList());
+		
 	}
 
 }
+

@@ -2,11 +2,21 @@ package com.ifba.pweb.projeto.clinica.entidades.model;
 
 import com.ifba.pweb.projeto.clinica.entidades.Endereco;
 
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.OneToOne;
+
+@MappedSuperclass
 public class PessoaForm {
 	private String nome;
 	private String telefone;
+	@OneToOne
 	private Endereco endereco;
 	
+	
+	public PessoaForm() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	public String getNome() {
 		return nome;
 	}

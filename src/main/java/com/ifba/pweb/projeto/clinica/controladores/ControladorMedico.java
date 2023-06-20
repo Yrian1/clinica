@@ -32,7 +32,7 @@ public class ControladorMedico {
 	
 	@PostMapping
 	public void cadastrar(@RequestBody @Valid Medico medico) {
-		
+		System.out.println(medico);
 		medRepo.save(medico);
 		
 	}
@@ -63,14 +63,14 @@ public class ControladorMedico {
 	@Transactional
 	public void deletar(@PathVariable Long id) {
 		
-		Optional<Medico> projetoOpt = medRepo.findById(id);
-		if(!projetoOpt.isPresent()){
+		Optional<Medico> medicoOpt = medRepo.findById(id);
+		if(!medicoOpt.isPresent()){
 			return;
 		}
 			
-			Medico medico = projetoOpt.get();
-			//atuacoesRepo.deleteByProjetoId(id);
-			medRepo.delete(medico);
+			Medico medico = medicoOpt.get();
+			medico.setEh_ativo(false);
+			//medRepo.delete(medico);
 	}
 	
 }

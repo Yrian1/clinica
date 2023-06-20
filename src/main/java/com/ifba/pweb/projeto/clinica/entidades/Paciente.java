@@ -1,33 +1,24 @@
 package com.ifba.pweb.projeto.clinica.entidades;
 
+import com.ifba.pweb.projeto.clinica.entidades.model.PessoaForm;
+
 import jakarta.persistence.Entity;
-
-
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity(name = "pacientes")
-public class Paciente {
-	private String nome;
+public class Paciente extends PessoaForm{
 	private String email;
 	@Id
-	private Long CPF;
+	private Long cpf;
 	private boolean eh_ativo;
-	@OneToOne
-	private Endereco endereco;
+
 	
 	public Paciente() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getNome() {
-		return nome;
-	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public String getEmail() {
 		return email;
@@ -46,13 +37,18 @@ public class Paciente {
 		this.eh_ativo = eh_ativo;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
+
+
+	public Long getCPF() {
+		return cpf;
 	}
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
+
+
+	public void setCPF(Long cPF) {
+		cpf = cPF;
 	}
-	
+
+
 	
 }

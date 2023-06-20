@@ -1,37 +1,40 @@
 package com.ifba.pweb.projeto.clinica.entidades;
 
+import com.ifba.pweb.projeto.clinica.entidades.model.PessoaForm;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity(name = "medicos")
-public class Medico {
-	private String nome;
+public class Medico extends PessoaForm{
+
 	private String email;
-	private String telefone;
 	@Id
-	private Long CRM;
+	private Long crm;
 	private boolean eh_ativo;
 	@Enumerated(EnumType.STRING)
 	private Especialidade especialidade;
-	@OneToOne
-	private Endereco endereco;
+
 	
 	public Medico() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getNome() {
-		return nome;
+
+
+	public Medico(String email, Long cRM, boolean eh_ativo, Especialidade especialidade) {
+		super();
+		this.email = email;
+		crm = cRM;
+		this.eh_ativo = eh_ativo;
+		this.especialidade = especialidade;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+
 
 	public String getEmail() {
 		return email;
@@ -42,11 +45,11 @@ public class Medico {
 	}
 
 	public Long getCRM() {
-		return CRM;
+		return crm;
 	}
 
 	public void setCRM(Long cRM) {
-		CRM = cRM;
+		crm = cRM;
 	}
 
 	public boolean isEh_ativo() {
@@ -65,21 +68,7 @@ public class Medico {
 		this.especialidade = especialidade;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
+	
 	
 	
 }
