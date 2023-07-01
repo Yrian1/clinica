@@ -15,13 +15,15 @@ public class RegraHorarioDeFuncionamento extends RegradorConsulta{
 
 	
 	
-	public boolean check(ConsultaDto consulta , List<Consulta> consultas) {
+	public String check(ConsultaDto consulta , List<Consulta> consultas) {
+		
 		if(consulta.getData().getDayOfWeek() == DayOfWeek.SUNDAY) {
-				return false;
+				return "nao e possivel agendar aos domingos";
 		}
 		if(consulta.getHora().getHour() < HoraInicial || consulta.getHora().getHour() > HoraFinal) {
-			return false;
+			return "nao e possivel agendar fora do horario de funcionamento";
 		}
+	
 		return super.checkNext(consulta, consultas);
 	}
 }

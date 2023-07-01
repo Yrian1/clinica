@@ -13,9 +13,9 @@ public class RegraInativo extends RegradorConsulta {
 	}
 
 	@Override
-	public boolean check(ConsultaDto consulta, List<Consulta> consultas) {
+	public String check(ConsultaDto consulta, List<Consulta> consultas) {
 		// TODO Auto-generated method stub
-		return false;
+		return "";
 	}
 
 }

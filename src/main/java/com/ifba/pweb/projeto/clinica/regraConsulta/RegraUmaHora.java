@@ -14,10 +14,11 @@ public class RegraUmaHora extends RegradorConsulta {
 	}
 
 	@Override
-	public boolean check(ConsultaDto consulta, List<Consulta> consultas) {
-		if(consulta.getHora().getMinute()!=0)
-			return false;
+	public String check(ConsultaDto consulta, List<Consulta> consultas) {
 		
+		if(consulta.getHora().getMinute()!=0)
+			return "consulta deve ser agendada em no padrao: \"hh:00:00\"";
+	
 		return super.checkNext(consulta, consultas);
 	}
 

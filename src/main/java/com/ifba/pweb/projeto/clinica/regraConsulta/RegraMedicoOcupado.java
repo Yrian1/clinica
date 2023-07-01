@@ -11,17 +11,25 @@ public class RegraMedicoOcupado extends RegradorConsulta {
 		super(next);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public RegraMedicoOcupado() {
+		// TODO Auto-generated constructor stub
+		super(null);
+	}
 	@Override
-	public boolean check(ConsultaDto consulta, List<Consulta> consultas) {
-		
+	public String check(ConsultaDto consulta, List<Consulta> consultas) {
+		//System.out.println("regra medico ocupado: antes do check");
+		if(consulta.getMedico_id()==null) {
+			return "nao ha medicos disponiveis no horario";
+		}
 		for(Consulta consultaAgendadas : consultas) {
 			if(consultaAgendadas.getMedico().getCRM() == consulta.getMedico_id()) {
 				if(consulta.getHora().getHour() == consultaAgendadas.getHora().getHour()) {
-					return false;
+					return "medico ocupado";
 				}
 			}
 		}
+		System.out.println("regra medico ocupado: depois do check");
 		return checkNext(consulta, consultas);
 	}
 

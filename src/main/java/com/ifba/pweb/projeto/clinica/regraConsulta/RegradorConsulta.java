@@ -13,11 +13,11 @@ public abstract class RegradorConsulta implements Regra{
 			this.next = next;		
 	}
 	
-	public abstract boolean check(ConsultaDto consulta, List<Consulta> consultas);
+	public abstract String check(ConsultaDto consulta, List<Consulta> consultas);
 	
-	public boolean checkNext(ConsultaDto consulta, List<Consulta> consultas) {
+	public String checkNext(ConsultaDto consulta, List<Consulta> consultas) {
 		if(next == null) {
-			return true;
+			return null;
 		}
 		return next.check(consulta, consultas);
 	}

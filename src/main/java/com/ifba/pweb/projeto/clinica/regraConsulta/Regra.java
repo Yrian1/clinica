@@ -6,6 +6,6 @@ import com.ifba.pweb.projeto.clinica.dtos.ConsultaDto;
 import com.ifba.pweb.projeto.clinica.entidades.Consulta;
 
 public interface Regra {
-	public boolean check(ConsultaDto consulta, List<Consulta> consultas);
+	public String check(ConsultaDto consulta, List<Consulta> consultas);
 	
 }

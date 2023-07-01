@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ifba.pweb.projeto.clinica.dtos.MedicoDto;
 import com.ifba.pweb.projeto.clinica.entidades.Medico;
 import com.ifba.pweb.projeto.clinica.entidades.model.PessoaForm;
-import com.ifba.pweb.projeto.clinica.repositorios.medicoRepo;
+import com.ifba.pweb.projeto.clinica.repositorios.MedicoRepo;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -28,7 +28,7 @@ import jakarta.validation.Valid;
 public class ControladorMedico {
 	
 	@Autowired
-	medicoRepo medRepo;
+	MedicoRepo medRepo;
 	
 	@PostMapping
 	public void cadastrar(@RequestBody @Valid Medico medico) {

@@ -4,16 +4,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ifba.pweb.projeto.clinica.repositorios.ConsRepo;
-import com.ifba.pweb.projeto.clinica.repositorios.medicoRepo;
-import com.ifba.pweb.projeto.clinica.repositorios.pacienteRepo;
+import com.ifba.pweb.projeto.clinica.repositorios.MedicoRepo;
+import com.ifba.pweb.projeto.clinica.repositorios.PacienteRepo;
 
 @Service
 public class ConsultaService {
 	
 	@Autowired
-	medicoRepo medRepo;
+	MedicoRepo medRepo;
 	@Autowired
-	pacienteRepo coRepo;
+	PacienteRepo coRepo;
 	@Autowired
 	ConsRepo consRepo;
 	
