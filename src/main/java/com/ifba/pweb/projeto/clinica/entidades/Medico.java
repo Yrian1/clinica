@@ -23,6 +23,7 @@ public class Medico extends PessoaForm{
 	
 	public Medico() {
 		super();
+		this.eh_ativo = true;
 		// TODO Auto-generated constructor stub
 	}
 
