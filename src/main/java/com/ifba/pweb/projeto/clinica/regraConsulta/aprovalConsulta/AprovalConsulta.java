@@ -33,9 +33,9 @@ public class AprovalConsulta {
 	
 	public String check(ConsultaDto consulta, List<Consulta> consultas) {
 		this.aproval = new RegraHorarioDeFuncionamento(
-				new RegraUmaHora(
+							new RegraUmaHora(
 								new RegraAntecedencia(
-										new RegraMedicoOcupado())));
+									new RegraMedicoOcupado())));
 		return this.aproval.check(consulta, consultas);
 	}
 	

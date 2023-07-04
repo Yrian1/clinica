@@ -6,9 +6,12 @@ import java.util.stream.Collectors;
 import com.ifba.pweb.projeto.clinica.dtos.model.PessoaBasics;
 import com.ifba.pweb.projeto.clinica.entidades.Paciente;
 
+import jakarta.validation.constraints.NotNull;
+
 public class PacienteDto extends PessoaBasics{
 	
-	private Long CPF;
+	@NotNull(message = "cpf nao pode ser nulo")
+	private String CPF;
 	
 	
 	
@@ -17,13 +20,14 @@ public class PacienteDto extends PessoaBasics{
 		this.nome = paciente.getNome();
 		this.email = paciente.getEmail();
 		this.setCPF(paciente.getCPF());
+		this.endereco = paciente.getEndereco();
 	}
 
 	
-	public Long getCPF() {
+	public String getCPF() {
 		return CPF;
 	}
-	public void setCPF(Long cPF) {
+	public void setCPF(String cPF) {
 		CPF = cPF;
 	}
 	public static List<PacienteDto> pacienteIntoPacienteDto(List<Paciente> pacientes){

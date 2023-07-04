@@ -7,13 +7,15 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
 
 @Entity(name = "medicos")
 public class Medico extends PessoaForm{
 
 	private String email;
 	@Id
-	private Long crm;
+	@NotNull
+	private String crm;
 	private boolean eh_ativo;
 	@Enumerated(EnumType.STRING)
 	private Especialidade especialidade;
@@ -26,7 +28,7 @@ public class Medico extends PessoaForm{
 
 
 
-	public Medico(String email, Long cRM, boolean eh_ativo, Especialidade especialidade) {
+	public Medico(String email, String cRM, boolean eh_ativo, Especialidade especialidade) {
 		super();
 		this.email = email;
 		crm = cRM;
@@ -44,11 +46,11 @@ public class Medico extends PessoaForm{
 		this.email = email;
 	}
 
-	public Long getCRM() {
+	public String getCRM() {
 		return crm;
 	}
 
-	public void setCRM(Long cRM) {
+	public void setCRM(String cRM) {
 		crm = cRM;
 	}
 

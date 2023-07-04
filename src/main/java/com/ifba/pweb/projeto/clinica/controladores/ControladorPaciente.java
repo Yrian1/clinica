@@ -1,10 +1,11 @@
 package com.ifba.pweb.projeto.clinica.controladores;
 
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,27 +26,31 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/pacientes")
+@CrossOrigin
 public class ControladorPaciente {
 	
 	@Autowired
 	PacienteRepo pacienteRepo;
 	
 	@PostMapping
-	public void cadastrar(@RequestBody @Valid Paciente 
-			medico) {
+	public ResponseEntity<Paciente> cadastrar(@Valid @RequestBody  Paciente paciente) {
 		
-		pacienteRepo.save(medico);
+		pacienteRepo.save(paciente);
+		return ResponseEntity.ok().body(paciente);
+	
+		
+		
 		
 	}
 	
 	@GetMapping
-	public List<PacienteDto> Listar(){
+	public Iterable<PacienteDto> Listar(){
 		return PacienteDto.pacienteIntoPacienteDto(pacienteRepo.findAll());
 	}
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public void atualizar(@PathVariable Long id, @RequestBody PessoaForm medicoForm) {
+	public void atualizar(@PathVariable String id, @RequestBody PessoaForm medicoForm) {
 		
 		Optional<Paciente> pacienteOpt = pacienteRepo.findById(id);
 		if(!pacienteOpt.isPresent()){
@@ -62,16 +67,17 @@ public class ControladorPaciente {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public void deletar(@PathVariable Long id) {
+	public ResponseEntity<String> deletar(@PathVariable String id) {
 		
 		Optional<Paciente> pacienteOpt = pacienteRepo.findById(id);
 		if(!pacienteOpt.isPresent()){
-			return;
+			return ResponseEntity.badRequest().body("nao encontrado");
 		}
 			
 			Paciente paciente = pacienteOpt.get();
 			paciente.setEh_ativo(false);
 			pacienteRepo.save(paciente);
+		return ResponseEntity.accepted().body("deletado");
 	}
 	
 }

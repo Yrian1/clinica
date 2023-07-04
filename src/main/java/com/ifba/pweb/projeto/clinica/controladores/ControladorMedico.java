@@ -44,7 +44,7 @@ public class ControladorMedico {
 	
 	@PutMapping("/{id}")
 	@Transactional
-	public void atualizar(@PathVariable Long id, @RequestBody PessoaForm medicoForm) {
+	public void atualizar(@PathVariable String id, @RequestBody PessoaForm medicoForm) {
 		
 		Optional<Medico> projetoOpt = medRepo.findById(id);
 		if(!projetoOpt.isPresent()){
@@ -61,7 +61,7 @@ public class ControladorMedico {
 	
 	@DeleteMapping("/{id}")
 	@Transactional
-	public void deletar(@PathVariable Long id) {
+	public void deletar(@PathVariable String id) {
 		
 		Optional<Medico> medicoOpt = medRepo.findById(id);
 		if(!medicoOpt.isPresent()){

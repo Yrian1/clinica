@@ -3,6 +3,7 @@ package com.ifba.pweb.projeto.clinica.dtos.model;
 public abstract class PessoaBasics {
 	protected String nome;
 	protected String email;
+	protected String endereco;
 	
 	
 	public PessoaBasics() {
@@ -21,6 +22,14 @@ public abstract class PessoaBasics {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 }

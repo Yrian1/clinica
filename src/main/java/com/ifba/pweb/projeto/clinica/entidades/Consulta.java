@@ -5,9 +5,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity(name = "consultas")
-//@Table(uniqueConstraints = {@UniqueConstraint(name = "UniquePacienteData", columnNames = {"paciente", "data"})})
+@Table(uniqueConstraints = {@UniqueConstraint(name = "UniquePacienteData", columnNames = {"paciente", "data"})})
 //@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Consulta extends ConsultaBase {
 

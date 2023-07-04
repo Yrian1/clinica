@@ -7,9 +7,12 @@ import com.ifba.pweb.projeto.clinica.dtos.model.PessoaBasics;
 import com.ifba.pweb.projeto.clinica.entidades.Especialidade;
 import com.ifba.pweb.projeto.clinica.entidades.Medico;
 
+import jakarta.validation.constraints.NotNull;
+
 public class MedicoDto extends PessoaBasics{
 	
-	private Long CRM;
+	@NotNull(message = "CRM nao pode ser nulo")
+	private String CRM;
 	private Especialidade especialidade;
 	
 	
@@ -19,12 +22,13 @@ public class MedicoDto extends PessoaBasics{
 		this.email = medico.getEmail();
 		this.CRM = medico.getCRM();
 		this.especialidade = medico.getEspecialidade();
+		this.endereco = medico.getEndereco();
 	}
 	
-	public Long getCrm() {
+	public String getCrm() {
 		return CRM;
 	}
-	public void setCrm(Long crm) {
+	public void setCrm(String crm) {
 		CRM = crm;
 	}
 	public Especialidade getEspecialidade() {

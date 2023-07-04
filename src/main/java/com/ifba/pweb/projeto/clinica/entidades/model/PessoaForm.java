@@ -1,16 +1,14 @@
 package com.ifba.pweb.projeto.clinica.entidades.model;
 
-import com.ifba.pweb.projeto.clinica.entidades.Endereco;
 
 import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.OneToOne;
+
 
 @MappedSuperclass
 public class PessoaForm {
 	private String nome;
 	private String telefone;
-	@OneToOne
-	private Endereco endereco;
+	private String endereco;
 	
 	
 	public PessoaForm() {
@@ -29,10 +27,10 @@ public class PessoaForm {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public Endereco getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(Endereco endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 	

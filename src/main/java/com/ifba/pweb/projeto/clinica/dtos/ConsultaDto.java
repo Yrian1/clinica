@@ -15,9 +15,9 @@ public class ConsultaDto {
 	
 	
 	private Long id;
-	private Long medico_id;
+	private String medico_id;
 	@NotNull(message = "paciente_id nao pode ser nullo")
-	private Long paciente_id;
+	private String paciente_id;
 	@NotNull(message = "hora nao pode ser nullo")
 	private LocalTime hora;
 	@NotNull(message = "data nao pode ser nullo")
@@ -62,16 +62,16 @@ public class ConsultaDto {
 		return new AprovalConsulta().check(this, consultas, medicos);
 			
 	}
-	public Long getMedico_id() {
+	public String getMedico_id() {
 		return medico_id;
 	}
-	public void setMedico_id(Long medico_id) {
+	public void setMedico_id(String medico_id) {
 		this.medico_id = medico_id;
 	}
-	public Long getPaciente_id() {
+	public String getPaciente_id() {
 		return paciente_id;
 	}
-	public void setPaciente_id(Long paciente_id) {
+	public void setPaciente_id(String paciente_id) {
 		this.paciente_id = paciente_id;
 	}
 
